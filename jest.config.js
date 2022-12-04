@@ -1,3 +1,5 @@
+const resolve = require('resolve')
+
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
@@ -6,7 +8,9 @@ module.exports = {
     '!<rootDir>/src/test/**/*',
   ],
   coverageDirectory: 'coverage',
-  testEnvironment: 'jsdom',
+  testEnvironment: resolve.sync('jest-environment-jsdom', {
+    basedir: require.resolve('jest'),
+  }),
   roots: ['<rootDir>/src'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/'],

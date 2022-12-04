@@ -14,7 +14,7 @@
     "check-format": "npm run prettier -- --list-different",
     "test-validate": "jest",
     "test": "jest --watch",
-    "coverage": "jest --coverage",
+    "test:coverage": "jest --watch=false --coverage",
     "validate": "npm-run-all --parallel check-types check-format lint test-validate build"
   },
   "keywords": [],
